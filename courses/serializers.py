@@ -12,7 +12,7 @@ class LessonSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CourseSerializer(serializers.ModelSerializer):
-    lessons = serializers.SerializerMethodField(read_only=True)
+
 
     class Meta:
         model = Course
