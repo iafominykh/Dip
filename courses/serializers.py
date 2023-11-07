@@ -2,7 +2,7 @@ from rest_framework import serializers
 from courses.models import Course, Lesson
 
 
-MANYABLE = {'many': True, 'read_only': True}
+
 
 
 class LessonSerializer(serializers.ModelSerializer):
