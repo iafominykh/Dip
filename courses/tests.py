@@ -18,7 +18,7 @@ class LessonTestCase(APITestCase):
             is_active=True,
 
         )
-        self.user.set_password('324214Kross!')
+        self.user.set_password('Qq111111')
         self.user.save()
 
         token = RefreshToken.for_user(self.user)
