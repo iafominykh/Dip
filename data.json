@@ -1,0 +1,72 @@
+[
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "name": "C#",
+      "preview": "",
+      "description": "Расширенный курс",
+      "url": "",
+      "is_public": true,
+      "owner": 1
+    }
+  },
+  {
+    "model": "courses.lesson",
+    "pk": 1,
+    "fields": {
+      "course": 1,
+      "title": "Lesson 1",
+      "description": "Description for Lesson 1",
+      "preview": "",
+      "lesson_url": "http://lesson1.com",
+      "is_public": true,
+      "owner": 1
+    }
+  },
+  {
+    "model": "courses.test",
+    "pk": 1,
+    "fields": {
+      "lesson": 1,
+      "test_title": "Test 1",
+      "description": "Description for Test 1",
+      "is_public": true,
+      "owner": 1
+    }
+  },
+  {
+    "model": "courses.question",
+    "pk": 1,
+    "fields": {
+      "test": 1,
+      "question_text": "Question for Test 1"
+    }
+  },
+  {
+    "model": "courses.question",
+    "pk": 2,
+    "fields": {
+      "test": 1,
+      "question_text": "Question for Test 2"
+    }
+  },
+  {
+    "model": "courses.answer",
+    "pk": 1,
+    "fields": {
+      "question": 1,
+      "answer_text": "Answer for Question 1",
+      "is_correct": true
+    }
+  },
+  {
+    "model": "courses.answer",
+    "pk": 2,
+    "fields": {
+      "question": 2,
+      "answer_text": "Answer for Question 2",
+      "is_correct": true
+    }
+  }
+]

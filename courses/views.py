@@ -2,10 +2,10 @@
 from rest_framework import viewsets, generics
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, IsAdminUser
 
-from courses.models import Course, Lesson
+from courses.models import Course, Lesson, Test, Question, Answer
 from courses.paginators import ListPaginator
 from courses.permissions import IsOwner
-from courses.serializers import LessonSerializer, CourseSerializer
+from courses.serializers import LessonSerializer, CourseSerializer, TestSerializer, QuestionSerializer, AnswerSerializer
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -21,7 +21,6 @@ class LessonCreateAPIView(generics.CreateAPIView):
     """Создание урока"""
     serializer_class = LessonSerializer
     permission_classes = [IsAuthenticated, IsOwner | IsAdminUser]
-
 
     def perform_create(self, serializer):
         new_lesson = serializer.save()
@@ -55,3 +54,40 @@ class LessonDestroyAPIView(generics.DestroyAPIView):
     """Удаление урока"""
     queryset = Lesson.objects.all()
     permission_classes = [IsAuthenticated, IsOwner | IsAdminUser]
+
+
+class TestCreateAPIView(generics.ListCreateAPIView):
+    queryset = Test.objects.all()
+    serializer_class = TestSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
+
+
+class TestDetailAPIView(generics.RetrieveAPIView):
+    queryset = Test.objects.all()
+    serializer_class = TestSerializer
+
+class TestListAPIView(generics.ListAPIView):
+    queryset = Test.objects.all()
+    serializer_class = TestSerializer
+
+class TestUpdateAPIView(generics.UpdateAPIView):
+    queryset = Test.objects.all()
+    serializer_class = TestSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
+
+
+class TestDestroyAPIView(generics.DestroyAPIView):
+    queryset = Test.objects.all()
+    serializer_class = TestSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
+
+
+class QuestionListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
+
+
+class AnswerListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Answer.objects.all()
+    serializer_class = AnswerSerializer
