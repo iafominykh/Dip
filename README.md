@@ -16,3 +16,5 @@ python manage.py migrate
 4. Запустить сервер
 python manage.py runserver
 5. Подключиться используя Postman для тестирования функционала
+6. Для создания пользователя использовать 
+python manage.py csu
