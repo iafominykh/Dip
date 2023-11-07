@@ -107,6 +107,7 @@ class LessonTestCase(APITestCase):
             Lesson.objects.all().exists()
         )
     def test_lesson_delete(self):
+        """ Тест удаления урока """
         self.client.force_authenticate(user=self.user)
 
         response = self.client.delete(
