@@ -38,6 +38,6 @@ urlpatterns = [
     re_path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
-    path('', include('courses.urls', namespace='education')),
+    path('', include('courses.urls', namespace='courses')),
     path('users/', include('users.urls', namespace='users')),
     ]
