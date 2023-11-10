@@ -5,7 +5,8 @@ from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnl
 from courses.models import Course, Lesson, Test, Question, Answer
 from courses.paginators import ListPaginator
 from courses.permissions import IsOwner
-from courses.serializers import LessonSerializer, CourseSerializer, TestSerializer, QuestionSerializer, AnswerSerializer
+from courses.serializers import LessonSerializer, CourseSerializer, TestSerializer, QuestionSerializer, \
+    AnswerSerializer, TestDetailSerializer, TestListSerializer
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -64,11 +65,15 @@ class TestCreateAPIView(generics.ListCreateAPIView):
 
 class TestDetailAPIView(generics.RetrieveAPIView):
     queryset = Test.objects.all()
-    serializer_class = TestSerializer
+    serializer_class = TestDetailSerializer
+    permission_classes = [IsAuthenticated, IsOwner | IsAdminUser]
+
 
 class TestListAPIView(generics.ListAPIView):
     queryset = Test.objects.all()
-    serializer_class = TestSerializer
+    serializer_class = TestListSerializer
+    permission_classes = [IsAuthenticated, IsOwner | IsAdminUser]
+
 
 class TestUpdateAPIView(generics.UpdateAPIView):
     queryset = Test.objects.all()
