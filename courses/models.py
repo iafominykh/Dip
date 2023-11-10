@@ -62,6 +62,10 @@ class Question(models.Model):
     def __str__(self):
         return f'{self.question_text}'
 
+    class Meta:
+        verbose_name = 'Вопрос'
+        verbose_name_plural = 'Вопросы'
+
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, verbose_name='Вопрос')
     answer_text = models.CharField(max_length=200, verbose_name='Текст ответа')
@@ -69,3 +73,7 @@ class Answer(models.Model):
 
     def __str__(self):
         return f'{self.answer_text}'
+
+    class Meta:
+        verbose_name = 'Ответ'
+        verbose_name_plural = 'Ответы'
