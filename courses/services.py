@@ -29,5 +29,4 @@ def user_testing(user, test_id):
 
     print(f"Вы набрали {score} из {len(questions)} баллов")
 
-# Пример использования функции
-user_testing(user=settings.AUTH_USER_MODEL, test_id=1)
+
