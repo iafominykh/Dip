@@ -9,7 +9,7 @@ from users.models import User
 class LessonTestCase(APITestCase):
 
     def setUp(self):
-        """Заполнение первичных данных"""
+        """Заполнение данных"""
 
         self.user = User.objects.create(
             email='test@test.ru',
