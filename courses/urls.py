@@ -10,7 +10,7 @@ from courses.views import CourseViewSet, LessonCreateAPIView, LessonListAPIView,
 from users.apps import UsersConfig
 
 app_name = UsersConfig.name
-
+# Курсы
 router = DefaultRouter()
 router.register(r'courses', CourseViewSet, basename='courses')
 
@@ -21,12 +21,15 @@ urlpatterns = [
                   path('lesson/<int:pk>/', LessonRetrieveAPIView.as_view(), name='get_lesson'),
                   path('lesson/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='update_lesson'),
                   path('lesson/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='delete_lesson'),
+                  # Тесты
                   path('tests/create/', TestCreateAPIView.as_view(), name='test_create'),
                   path('tests/', TestListAPIView.as_view(), name='test_list'),
                   path('tests/<int:pk>/', TestDetailAPIView.as_view(), name='test_detail'),
                   path('tests/update/<int:pk>/', TestUpdateAPIView.as_view(), name='test_update'),
                   path('tests/delete/<int:pk>/', TestDestroyAPIView.as_view(), name='test_delete'),
+                  # Вопросы
                   path('questions/', QuestionListCreateAPIView.as_view(), name='question_create'),
+                  # Ответы
                   path('answers/', AnswerListCreateAPIView.as_view(), name='answer_create'),
 
               ] + router.urls
