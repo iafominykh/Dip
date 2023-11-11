@@ -62,6 +62,11 @@ class TestCreateAPIView(generics.ListCreateAPIView):
     serializer_class = TestSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
 
+    def perform_create(self, serializer):
+        new_test = serializer.save()
+        new_test.owner = self.request.user
+        new_test.save()
+
 
 class TestDetailAPIView(generics.RetrieveAPIView):
     queryset = Test.objects.all()
