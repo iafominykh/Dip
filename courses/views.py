@@ -96,3 +96,4 @@ class QuestionListCreateAPIView(generics.ListCreateAPIView):
 class AnswerListCreateAPIView(generics.ListCreateAPIView):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
