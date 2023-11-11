@@ -3,7 +3,7 @@ from django.db import models
 from users.models import NULLABLE, User
 
 
-# Create your models here.
+
 class Course(models.Model):
     name = models.CharField(max_length=150, verbose_name='Название')
     preview = models.ImageField(**NULLABLE, upload_to='courses/', verbose_name='Превью')
